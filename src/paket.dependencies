@@ -1,4 +1,5 @@
 source https://nuget.org/api/v2
 
 nuget MahApps.Metro > 1.1.2
+nuget MaterialDesignThemes > 1.0.0.122
 nuget Microsoft.Maps.MapControl.WPF >= 1.0.0.3
