@@ -2,7 +2,9 @@
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      xmlns:wpf="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+                      xmlns:MapControl="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+                      xmlns:MaterialDesignThemes="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+                      xmlns:system="clr-namespace:System;assembly=mscorlib"
                       Title="BingMaps"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       WindowStartupLocation="CenterScreen"
@@ -10,6 +12,43 @@
                       Height="600"
                       Width="800">
     <Grid>
-        <wpf:Map CredentialsProvider="INSERT_YOUR_BING_MAPS_KEY" />
+
+        <MaterialDesignThemes:DialogHost x:Name="DialogHost"
+                                         DialogClosing="DialogHost_OnDialogClosing">
+            <MaterialDesignThemes:DialogHost.DialogContent>
+                <StackPanel Margin="16"
+                            MinWidth="400">
+
+                    <TextBlock>Application Id</TextBlock>
+                    <TextBox Margin="0 8 0 0"
+                             HorizontalAlignment="Stretch"
+                             x:Name="AppIdTextBox" />
+
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                        <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                                IsDefault="True"
+                                Margin="0 8 8 0"
+                                Command="MaterialDesignThemes:DialogHost.CloseDialogCommand">
+                            <Button.CommandParameter>
+                                <system:Boolean>True</system:Boolean>
+                            </Button.CommandParameter>
+                            ACCEPT
+                        </Button>
+                        <Button Style="{DynamicResource MaterialDesignFlatButton}"
+                                IsCancel="True"
+                                Margin="0 8 8 0"
+                                Command="MaterialDesignThemes:DialogHost.CloseDialogCommand">
+                            <Button.CommandParameter>
+                                <system:Boolean>False</system:Boolean>
+                            </Button.CommandParameter>
+                            CANCEL
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+            </MaterialDesignThemes:DialogHost.DialogContent>
+
+            <MapControl:Map x:Name="Map" />
+        </MaterialDesignThemes:DialogHost>
     </Grid>
 </controls:MetroWindow>
