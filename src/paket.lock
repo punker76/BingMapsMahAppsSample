@@ -3,6 +3,6 @@ NUGET
   specs:
     MahApps.Metro (1.1.3-ALPHA196)
     MaterialDesignColors (1.1.1)
-    MaterialDesignThemes (1.1.0-ci221)
+    MaterialDesignThemes (1.1.0.234)
       MaterialDesignColors (>= 1.1.1)
     Microsoft.Maps.MapControl.WPF (1.0.0.3)
